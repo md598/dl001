@@ -28,7 +28,7 @@ async def setup_learner():
     await download_file(model_file_url, path/'models'/f'{model_file_name}.h5')
     data_bunch = ImageDataBunch.single_from_classes(path, classes, tfms=get_transforms(), size=299).normalize(imagenet_stats)
     learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
-    learn.load(model_file_name)
+    learn.load(model_file_name) 
     return learn
 
 loop = asyncio.get_event_loop()
