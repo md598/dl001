@@ -8,7 +8,7 @@ from fastai.vision import *
 import base64
 
 model_file_url = 'https://drive.google.com/uc?export=download&id=1WsWQC5RRuVTUa_dHNL2bUCoPleI84oxz'
-model_file_name = 'MultiClass_001_resnet34.pth'
+model_file_name = 'model'
 classes = ['HDD','Plate','SSD']
 
 path = Path(__file__).parent
@@ -25,10 +25,10 @@ async def download_file(url, dest):
             with open(dest, 'wb') as f: f.write(data)
 
 async def setup_learner():
-    await download_file(model_file_url, path/'models'/f'{model_file_name}.h5')
+    await download_file(model_file_url, path/'models'/f'{model_file_name}.pth')
     data_bunch = ImageDataBunch.single_from_classes(path, classes, tfms=get_transforms(), size=299).normalize(imagenet_stats)
     learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
-    learn.load(model_file_name) 
+    learn.load(model_file_name)
     return learn
 
 loop = asyncio.get_event_loop()
