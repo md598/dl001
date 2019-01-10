@@ -7,7 +7,7 @@ from io import BytesIO
 from fastai.vision import *
 import base64
 
-model_file_url = 'data/webmultic1/app/'
+model_file_url = 'https://drive.google.com/file/d/1xsW29olcX-dYVcliGAJR82xh-GqKdveA/view?usp=sharing'
 model_file_name = 'model'
 classes = ['HDD','Plate','SSD"]
 
