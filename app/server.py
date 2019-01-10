@@ -7,7 +7,7 @@ from io import BytesIO
 from fastai.vision import *
 import base64
 
-model_file_url = 'https://drive.google.com/file/d/1WsWQC5RRuVTUa_dHNL2bUCoPleI84oxz/view?usp=sharing'
+model_file_url = 'https://drive.google.com/uc?export=download&id=1WsWQC5RRuVTUa_dHNL2bUCoPleI84oxz'
 model_file_name = 'MultiClass_001_resnet34'
 classes = ['HDD','Plate','SSD']
 
