@@ -7,8 +7,8 @@ from io import BytesIO
 from fastai.vision import *
 import base64
 
-model_file_url = 'https://drive.google.com/file/d/1xsW29olcX-dYVcliGAJR82xh-GqKdveA/view?usp=sharing'
-model_file_name = 'MultiClass_001_vgg16'
+model_file_url = 'https://drive.google.com/file/d/1WsWQC5RRuVTUa_dHNL2bUCoPleI84oxz/view?usp=sharing'
+model_file_name = 'MultiClass_001_resnet34'
 classes = ['HDD','Plate','SSD']
 
 path = Path(__file__).parent
@@ -27,7 +27,7 @@ async def download_file(url, dest):
 async def setup_learner():
     await download_file(model_file_url, path/'models'/f'{model_file_name}.h5')
     data_bunch = ImageDataBunch.single_from_classes(path, classes, tfms=get_transforms(), size=299).normalize(imagenet_stats)
-    learn = create_cnn(data_bunch, models.vgg16, pretrained=False)
+    learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
     learn.load(model_file_name)
     return learn
 
