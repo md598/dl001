@@ -8,7 +8,7 @@ from fastai.vision import *
 import base64
 
 model_file_url = 'https://drive.google.com/uc?export=download&id=1WsWQC5RRuVTUa_dHNL2bUCoPleI84oxz'
-model_file_name = 'MultiClass_001_resnet34'
+model_file_name = 'MultiClass_001_resnet34.pth'
 classes = ['HDD','Plate','SSD']
 
 path = Path(__file__).parent
