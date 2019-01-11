@@ -11,7 +11,7 @@ import uvicorn, aiohttp, asyncio
 import base64, sys, numpy as np
 
 path = Path(__file__).parent
-model_file_url = 'YOUR MODEL.h5 DIRECT / RAW DOWNLOAD URL HERE!'
+model_file_url = 'https://drive.google.com/uc?export=download&id=1WsWQC5RRuVTUa_dHNL2bUCoPleI84oxz'
 model_file_name = 'model'
 
 app = Starlette()
@@ -30,10 +30,10 @@ async def download_file(url, dest):
 
 async def setup_model():
     #UNCOMMENT HERE FOR CUSTOM TRAINED MODEL
-    # await download_file(model_file_url, MODEL_PATH)
-    # model = load_model(MODEL_PATH) # Load your Custom trained model
-    # model._make_predict_function()
-    model = ResNet50(weights='imagenet') # COMMENT, IF you have Custom trained model
+    await download_file(model_file_url, MODEL_PATH)
+    model = load_model(MODEL_PATH) # Load your Custom trained model
+    model._make_predict_function()
+    #model = ResNet50(weights='imagenet') # COMMENT, IF you have Custom trained model
     return model
 
 # Asynchronous Steps
