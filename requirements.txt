@@ -5,3 +5,7 @@ uvicorn
 python-multipart
 aiofiles
 aiohttp
+keras
+gevent
+h5py
+tensorflow
