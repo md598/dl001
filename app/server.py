@@ -48,6 +48,7 @@ async def upload(request):
 
 def predict_from_bytes(bytes):
     img = open_image(BytesIO(bytes))
+    print (learn.model)
     _,_,losses = learn.predict(img)
     predictions = sorted(zip(classes, map(float, losses)), key=lambda p: p[1], reverse=True)
     result_html1 = path/'static'/'result1.html'
